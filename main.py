@@ -1,11 +1,13 @@
 import time
 from checkingbrowser import BrowserManager
 from storage_inspector import StorageInspector
+from config import CONFIG
 
 if __name__ == "__main__":
+    url = CONFIG["url"]
     browser =BrowserManager()
 
-    browser.go_to_website("https://google.com")
+    browser.go_to_website(url)
     time.sleep(5)
 
     storage =StorageInspector(browser.driver)

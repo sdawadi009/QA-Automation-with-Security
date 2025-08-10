@@ -1,0 +1,5 @@
+# URL to test
+url: "https://google.com"
+
+#Browser Settings (Currently supports only chrome, will be updated)
+browser: "chrome"
