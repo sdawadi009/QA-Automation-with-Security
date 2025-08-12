@@ -28,6 +28,7 @@ class SimpleCookieChecker:
                     'Standard': 'GDPR Article 32',
                     'risk': 'Data can be intercepted over HTTP'
                 })
+         print (self.issues_found)
          return self.issues_found
 
     def print_summary(self):
@@ -42,6 +43,7 @@ class SimpleCookieChecker:
             print(f"\n Issues:")
             for issue in self.issues_found:
                 print(f"  - {issue['cookie']}: {issue['issue']}")
+                
             
         else:
             print("All issues have proper security")

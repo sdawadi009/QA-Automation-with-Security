@@ -23,6 +23,7 @@ if __name__ == "__main__":
     checker = SimpleCookieChecker(cookie_simplify, url)
 
     checker.check_secure_flag()
+    checker.print_summary()
     ##print("Get cookies:", storage.get_cookies())
 
     ##print("Initial local sotrage:", storage.get_local_storage_items())
