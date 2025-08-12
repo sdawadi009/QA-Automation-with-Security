@@ -2,6 +2,7 @@ import time
 from checkingbrowser import BrowserManager
 from storage_inspector import StorageInspector
 from cookie_simplifier import CookieSimplifier
+from simplecookiechecker import SimpleCookieChecker
 from config import CONFIG
 
 if __name__ == "__main__":
@@ -18,6 +19,10 @@ if __name__ == "__main__":
     print("All simplfied cookies:")
     for c in cookie_simplify.simplify_all():
         print(c)
+    
+    checker = SimpleCookieChecker(cookie_simplify, url)
+
+    checker.check_secure_flag()
     ##print("Get cookies:", storage.get_cookies())
 
     ##print("Initial local sotrage:", storage.get_local_storage_items())
