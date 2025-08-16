@@ -23,6 +23,7 @@ if __name__ == "__main__":
     checker = SimpleCookieChecker(cookie_simplify, url)
 
     checker.check_secure_flag()
+    checker.check_data_retention()
     checker.print_summary()
     ##print("Get cookies:", storage.get_cookies())
 
