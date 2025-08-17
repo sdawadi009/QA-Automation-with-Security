@@ -11,7 +11,7 @@ class SimpleCookieChecker:
 
     def check_secure_flag(self):
         ## This function checks if the secure flag is set or not, GDPR article 32 
-         print ("Gettinf cookies from the browser ...")
+         print ("Getting cookies from the browser ...")
 
          cookies_list =self.cookie_simplifier.simplify_all()
 
@@ -67,7 +67,18 @@ class SimpleCookieChecker:
             if days_left is None:
                 print(f"{cookie_name}: Session cookie (expires when browser closes)")
             elif days_left > 365:
-                print(f"{cookie_name}: Expires in {days_left} days (exceeds 1 year)")
+                if days_left> 730:
+                    risk_level = "High"
+                    security_msg = "This is a GDPR violation"
+
+                elif days_left > 537:
+                    risk_level = "Medium"
+                    security_msg = "This is a Medium Risk Violation,"
+                else:
+                    risk_level = "Low"
+                    security_msg = "This might be needed to be reviewed"
+
+                print(f"{cookie_name}: Expires in {days_left} days (exceeds 1 year), This is a {risk_level} risk. {security_msg}")
 
                 self.issues_found.append({
                     'cookie':cookie_name,
