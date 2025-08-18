@@ -26,7 +26,7 @@ class SimpleCookieChecker:
              if secure:
                  print(f" {cookie_name} : Secure Flag is set")
              else:
-                print(f"{cookie_name}: Secure Flas is missing")
+                print(f"{cookie_name}: Secure Flag is missing")
                 self.issues_found.append({
                     'cookie': cookie_name,
                     'issue': 'Missing SECURE flag',

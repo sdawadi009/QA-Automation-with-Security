@@ -3,10 +3,11 @@ from checkingbrowser import BrowserManager
 from storage_inspector import StorageInspector
 from cookie_simplifier import CookieSimplifier
 from simplecookiechecker import SimpleCookieChecker
+from website_analyser import WebsiteAnalyser
 from config import CONFIG
 
 if __name__ == "__main__":
-    url = CONFIG["url"]
+    """url = CONFIG["url"]
     browser =BrowserManager()
 
     browser.go_to_website(url)
@@ -27,7 +28,14 @@ if __name__ == "__main__":
     checker.print_summary()
     ##print("Get cookies:", storage.get_cookies())
 
-    ##print("Initial local sotrage:", storage.get_local_storage_items())
+    ##print("Initial local sotrage:", storage.get_local_storage_items())"""
+
+    webanalyser=WebsiteAnalyser()
+    webanalyser.analyse()
+
+    time.sleep(5)
+
+
 
 
 

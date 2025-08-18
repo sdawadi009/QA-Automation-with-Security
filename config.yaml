@@ -1,5 +1,5 @@
 # URL to test
-url: "https://reddit.com"
+url: "https://bing.com"
 
 #Browser Settings (Currently supports only chrome, will be updated)
 browser: "chrome"
