@@ -90,6 +90,27 @@ class SimpleCookieChecker:
             
         return self.issues_found
     
+    def check_httponly_flag(self):
+        """GDPR Article 32 - XSS Protection"""
+        print("\n Checking HttpOnly Flag for GDPR compliance...")
+        cookies_list=self.cookie_simplifier.simplify_all()
+
+        for cookie in cookies_list:
+            cookie_name = cookie.get('name','Unknown')
+            http_only = cookie.get('httpOnly', False)
+
+            if not http_only:
+                print(f"{cookie_name}: Missing HTTPonly Flag")
+                self.issues_found.append({
+                'cookie': cookie_name,
+                'issue': 'Missing HttpOnly flag',
+                'Standard': 'GDPR Article 32',
+                'risk': 'Vulnerable to XSS attacks'
+                })
+            else:
+                print(f"{cookie_name}: HttpOnly flag is set")
+        return self.issues_found
+    
 
     def print_summary(self):
         """This prints the summary of the finding"""
