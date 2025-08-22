@@ -112,6 +112,31 @@ class SimpleCookieChecker:
         return self.issues_found
     
 
+    def check_same_site_attribure(self):
+        print("\n Checking Same site attribute for CSRF protection...")
+        cookies_list=self.cookie_simplifier.simplify_all()
+
+        for cookie in cookies_list:
+            cookie_name = cookie.get('name', 'unknown')
+            same_site = cookie.get('sameSite')
+
+            if same_site in ['Strict', 'Lax']:
+                print(f"{cookie_name}:SameSite is properly set to {same_site}")
+            else:
+                print(f"{cookie_name}: Samesite attribute is missing or set to None")
+
+                self.issues_found.append({
+                    'cookie': cookie_name,
+                    'issue': 'Missing or inadequate Samesite attribute',
+                    'Standard': 'Security best practise',
+                    'risk': "vulnerable to CSFR attributes"
+                })
+
+        return self.issues_found
+                
+                
+
+
     def print_summary(self):
         """This prints the summary of the finding"""
 

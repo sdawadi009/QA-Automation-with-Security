@@ -25,6 +25,7 @@ class WebsiteAnalyser:
         self.checker.check_secure_flag()
         self.checker.check_data_retention()
         self.checker.check_httponly_flag()
+        self.checker.check_same_site_attribure()
 
         print("All simplfied cookies:")
 
